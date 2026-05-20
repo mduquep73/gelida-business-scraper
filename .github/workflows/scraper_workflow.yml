@@ -1,35 +1,23 @@
 name: Scraper Automatizado
 
 on:
-  # Forzamos ejecución con push para que GitHub lo detecte por primera vez
   push:
     branches: [ main ]
-  # Ejecución manual (siempre disponible)
   workflow_dispatch:
 
 jobs:
   scrape-and-save:
     runs-on: ubuntu-latest
     steps:
-      - name: 📥 Clonar repositorio
-        uses: actions/checkout@v4
-
-      - name: 🐍 Configurar Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.9'
-
-      - name: 📦 Instalar dependencias
-        run: pip install -r requirements.txt
-
-      - name: 🕷️ Ejecutar scraper
-        run: python src/scraper.py
-
-      - name: 💾 Subir resultados
-        uses: actions/upload-artifact@v4
+      - run: pip install -r requirements.txt
+      - run: python src/scraper.py
+      - uses: actions/upload-artifact@v4
         with:
           name: datos-del-scraper
           path: |
             data/
             logs/
-          retention-days: 30
