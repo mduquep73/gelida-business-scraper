@@ -1,12 +1,11 @@
 name: Scraper Automatizado
 
 on:
-  # Ejecución manual desde la pestaña Actions de GitHub
+  # Forzamos ejecución con push para que GitHub lo detecte por primera vez
+  push:
+    branches: [ main ]
+  # Ejecución manual (siempre disponible)
   workflow_dispatch:
-
-  # (Opcional) Si más adelante quieres programarlo, descomenta la línea siguiente y ajusta el cron
-  # schedule:
-  #   - cron: '0 6 * * *'   # todos los días a las 6:00 UTC
 
 jobs:
   scrape-and-save:
