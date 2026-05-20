@@ -44,8 +44,7 @@ Al finalizar, encontrarás el archivo data/directorio_gelida_final.csv y los log
 
 El proyecto incluye un pipeline de GitHub Actions que automatiza la ejecución del scraper. 
 El flujo de trabajo:
-    Se activa automáticamente todos los días a las 6:00 AM UTC (puedes cambiar el cron en el archivo YAML).
-    También se puede ejecutar manualmente desde la pestaña "Actions" del repositorio.
+    Se puede ejecutar manualmente desde la pestaña "Actions" del repositorio.
 Genera un artifact descargable (datos-del-scraper) que contiene el CSV y los logs de la última ejecución.
 Los artifacts se conservan durante 30 días.
 Puedes ver el estado del último workflow en el badge al inicio de este README.
